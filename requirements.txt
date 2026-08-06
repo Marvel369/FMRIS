@@ -1,14 +1,25 @@
-numpy
+# Data processing
 pandas
-scipy
-scikit-learn
-requests
-# For fetching live stock and market data
-yfinance
+numpy
 
-# For creating charts and risk graphs
+# Machine Learning
+scikit-learn
+joblib
+
+# Visualization
 matplotlib
 seaborn
+plotly
 
-# For building a web dashboard or interface
+# Dashboard
 streamlit
+
+# Configuration
+python-dotenv
+
+# Financial data (optional if using APIs later)
+yfinance
+fredapi
+
+# Compatibility
+urllib3
