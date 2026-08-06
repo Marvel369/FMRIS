@@ -101,6 +101,11 @@ def load_all_data():
     market = market.reset_index(drop=True)
     market["Date"] =  market["Date"].dt.date
 
+    market.to_csv(
+        DATA_PATH / "raw_market_data.csv",
+        index=False
+    )
+
     return market
 
 if __name__ == "__main__":

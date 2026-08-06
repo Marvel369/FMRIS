@@ -1,0 +1,63 @@
+[5 rows x 12 columns]
+dataset shape: (7628, 12)
+
+Logistic Regression
+----------------------------------------
+Accuracy : 0.8820
+Precision: 0.6080
+Recall   : 0.9522
+F1 Score : 0.7421
+MCC      : 0.6988
+
+=== Confusion Matrix ===
+[[1087  167]
+ [  13  259]]
+
+Random Forest
+----------------------------------------
+Accuracy : 0.8381
+Precision: 0.8205
+Recall   : 0.1176
+F1 Score : 0.2058
+MCC      : 0.2718
+
+=== Confusion Matrix ===
+[[1247    7]
+ [ 240   32]]
+
+Gradient Boosting
+----------------------------------------
+Accuracy : 0.8971
+Precision: 0.7291
+Recall   : 0.6728
+F1 Score : 0.6998
+MCC      : 0.6386
+
+=== Confusion Matrix ===
+[[1186   68]
+ [  89  183]]
+
+XGBoost
+----------------------------------------
+Accuracy : 0.8644
+Precision: 0.7241
+Recall   : 0.3860
+F1 Score : 0.5036
+MCC      : 0.4622
+
+=== Confusion Matrix ===
+[[1214   40]
+ [ 167  105]]
+
+SVM
+----------------------------------------
+Accuracy : 0.5780
+Precision: 0.2754
+Recall   : 0.8382
+F1 Score : 0.4145
+MCC      : 0.2764
+
+=== Confusion Matrix ===
+[[654 600]
+ [ 44 228]]
+ 

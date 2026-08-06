@@ -1,12 +1,11 @@
 import pandas as pd 
 import numpy as np
 
-from preprocessing import preprocessing_data
 
 def create_features():
 
     #load
-    df = preprocessing_data()
+    df = pd.read_csv("data/processed_market_data.csv")
 
 
     # feature 1 Moving average 30 days

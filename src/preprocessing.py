@@ -1,5 +1,4 @@
 import pandas as pd
-from data_loader import load_all_data
 
 def calculate_drawdown(df: pd.DataFrame):
     rolling_max = df['sp500'].cummax()
@@ -31,7 +30,7 @@ def preprocessing_data():
 
     # df = preprocess_data()
 
-    df = load_all_data()
+    df = pd.read_csv("data/raw_market_data.csv")
     df = df.sort_values("Date")
     df["treasury_10y"] = df["treasury_10y"].ffill() # fill in missing values
     df = df.dropna() # drop initial mssing values 
