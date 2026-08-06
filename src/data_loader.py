@@ -105,7 +105,7 @@ def load_all_data():
 
 if __name__ == "__main__":
 
-    df = load_all_data()
+    df = load_all_data() # new dataframe combines all market
     
 
     print(df.head())
