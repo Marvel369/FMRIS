@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+scikit-learn
+requests
+# For fetching live stock and market data
+yfinance
+
+# For creating charts and risk graphs
+matplotlib
+seaborn
+
+# For building a web dashboard or interface
+streamlit
