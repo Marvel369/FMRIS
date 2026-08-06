@@ -23,3 +23,8 @@ fredapi
 
 # Compatibility
 urllib3
+
+xgboost
+joblib
+scikit-learn
+libomp

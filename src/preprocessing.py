@@ -1,7 +1,34 @@
 import pandas as pd
 from data_loader import load_all_data
 
+def calculate_drawdown(df: pd.DataFrame):
+    rolling_max = df['sp500'].cummax()
+    drawdown = (df['sp500'] - rolling_max) / rolling_max
+    return drawdown
+
+# creating a MArket Risk Label (Target value)
+def create_risk_label(data: pd.DataFrame):
+    data['risk_label'] = 0
+
+    #high volatility
+    high_vix = data['vix'] > data['vix'].quantile(0.75)
+
+    #large market decline
+    large_drawdown = data['drawdown'] < -0.10
+
+    # negative return
+    negative_return = data['market_return'] < -0.02
+
+    # any of these true then label red flag or warn.
+    data.loc[
+        high_vix | large_drawdown | negative_return,
+        "risk_label"
+    ] = 1
+
+    return data
+
 def preprocessing_data():
+
     # df = preprocess_data()
 
     df = load_all_data()
@@ -16,10 +43,14 @@ def preprocessing_data():
         .rolling(window=30)
         .std()
     )
+    df["drawdown"] = calculate_drawdown(df)
+    
     # removing NAN value 
     df=df.dropna()
+    df= create_risk_label(df)
 
-    #save
+
+ #save
     df.to_csv(
     "data/processed_market_data.csv",
     index=False
