@@ -128,3 +128,14 @@ MCC      : 0.2552
 [[641 647]
  [ 35 202]]
 (venv) Muhammads-MacBook-Air-1485:FinancialMarketRiskIntelligenceSystem ali$ 
+
+
+===============================BASELINE=============================== 0.35
+
+                 Model  Accuracy  Precision  Recall  F1 Score     MCC  ROC-AUC
+0              XGBoost    0.9449     0.7473  0.8607    0.8000  0.7708   0.9546
+1  Logistic Regression    0.9313     0.6749  0.8934    0.7690  0.7394   0.9590
+2                  SVM    0.6350     0.2384  0.8443    0.3718  0.3010   0.8551
+3        Random Forest    0.1353     0.1277  0.9877    0.2262 -0.0068   0.8502
+4    Gradient Boosting    0.1075     0.1085  0.8279    0.1918 -0.3748   0.6597
+5        Decision Tree    0.0420     0.0286  0.1967    0.0499 -0.8072   0.1080

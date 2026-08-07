@@ -1,7 +1,7 @@
 """
 run_pipeline.py
 ----------------
-Runs your whole :-> data_loader -> preprocessing -> feature_engineering -> train_model
+Runs your whole :-> data_loader -> preprocessing -> feature_engineering -> train_baseline
 
 Usage:
     python run_pipeline.py
@@ -14,7 +14,7 @@ STEPS = [
     "src/data_loader.py",
     "src/preprocessing.py",
     "src/feature_engineering.py",
-    "src/train_model.py",
+    "src/train_baseline.py",
 ]
 
 for step in STEPS:
@@ -24,5 +24,5 @@ for step in STEPS:
         print(f"\n{step} failed — stopping pipeline.")
         sys.exit(1)
 
-print("\n---\nPipeline complete!!!\n Run `python src/model_selector.py` next to pick the best model,")
+print("\n---\nPipeline complete!!!\n Run `python src/model_selector.py` next to pick the best fine-tuned model,")
 print("then `python src/predictor.py` to get tomorrow's risk probability.\n---\n")
