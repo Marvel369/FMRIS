@@ -10,7 +10,7 @@ def create_risk_label(data: pd.DataFrame):
     data['risk_label'] = 0
 
     #high volatility
-    high_vix = data['vix'] > data['vix'].quantile(0.75)
+    high_vix = data['vix'] > 25.0
 
     #large market decline
     large_drawdown = data['drawdown'] < -0.10

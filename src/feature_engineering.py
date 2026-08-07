@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
     data = create_features()
 
-    print(data.head(30))
+    print(data.head())
     print(data.tail())
     print(data.shape)
 

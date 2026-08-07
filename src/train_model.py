@@ -33,8 +33,11 @@ print("dataset shape:",data.shape)
 TARGET = "risk_label"
 
 # split feature/target
-X = data.drop(columns = ["Date",TARGET,"drawdown","market_return","vix"],axis=1)
-y = data[TARGET]
+X = data.drop(columns = ["Date",TARGET,"sp500","peak_price","drawdown","market_return","vix"],axis=1)
+y = data[TARGET].shift(-1)
+
+X=X.iloc[:-1]
+y=y.dropna()
 
 #train test split
 split = int(len(data) * 0.8)
@@ -104,6 +107,7 @@ for name, model in models.items():
     #Prediction
     y_pred = model.predict(X_test)
     y_prob = model.predict_proba(X_test)[:,1] # grabs every row and only the 1 index(which is prob of crash) and not 0 prob of normal.
+    y_pred = (y_prob >= 0.30).astype(int)  
 
     # metrics (y_test_answer, y_prediction)
     accuracy = accuracy_score(y_test, y_pred)
