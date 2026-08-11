@@ -139,3 +139,287 @@ MCC      : 0.2552
 3        Random Forest    0.1353     0.1277  0.9877    0.2262 -0.0068   0.8502
 4    Gradient Boosting    0.1075     0.1085  0.8279    0.1918 -0.3748   0.6597
 5        Decision Tree    0.0420     0.0286  0.1967    0.0499 -0.8072   0.1080
+
+
+GridSearch
+===FINAL RANKING===
+
+Model:Tuned Random Forest       | F1: 0.8646 | Accuracy: 0.9675 | Precision: 0.9252 | recall: 0.8115
+Model:Tuned XGBoost             | F1: 0.8626 | Accuracy: 0.9659 | Precision: 0.8908 | recall: 0.8361
+Model:XGBoost                   | F1: 0.8000 | Accuracy: 0.9449 | Precision: 0.7473 | recall: 0.8607
+Model:Logistic Regression       | F1: 0.7690 | Accuracy: 0.9313 | Precision: 0.6749 | recall: 0.8934
+Model:SVM                       | F1: 0.3715 | Accuracy: 0.6345 | Precision: 0.2382 | recall: 0.8443
+
+Model:Random Forest             | F1: 0.2262 | Accuracy: 0.1353 | Precision: 0.1277 | recall: 0.9877
+Model:Tuned Gradient Boosting   | F1: 0.2079 | Accuracy: 0.1169 | Precision: 0.1174 | recall: 0.9057
+Model:Gradient Boosting         | F1: 0.1918 | Accuracy: 0.1075 | Precision: 0.1085 | recall: 0.8279
+Model:Decision Tree             | F1: 0.0499 | Accuracy: 0.0420 | Precision: 0.0286 | recall: 0.1967
+
+=======================================
+
+===FINAL RANKING===
+
+Model:Tuned Random Forest       | F1: 0.8646 | Accuracy: 0.9675 | Precision: 0.9252 | recall: 0.8115
+Model:Tuned XGBoost             | F1: 0.8626 | Accuracy: 0.9659 | Precision: 0.8908 | recall: 0.8361
+Model:Tuned Decision Tree       | F1: 0.8484 | Accuracy: 0.9638 | Precision: 0.9147 | recall: 0.7910
+Model:XGBoost                   | F1: 0.8000 | Accuracy: 0.9449 | Precision: 0.7473 | recall: 0.8607
+Model:Logistic Regression       | F1: 0.7690 | Accuracy: 0.9313 | Precision: 0.6749 | recall: 0.8934
+Model:Tuned Logistic Regression | F1: 0.7684 | Accuracy: 0.9324 | Precision: 0.6837 | recall: 0.8770
+Model:SVM                       | F1: 0.3718 | Accuracy: 0.6350 | Precision: 0.2384 | recall: 0.8443
+Model:Tuned SVM                 | F1: 0.3589 | Accuracy: 0.5711 | Precision: 0.2219 | recall: 0.9385
+Model:Random Forest             | F1: 0.2262 | Accuracy: 0.1353 | Precision: 0.1277 | recall: 0.9877
+Model:Tuned Gradient Boosting   | F1: 0.2079 | Accuracy: 0.1169 | Precision: 0.1174 | recall: 0.9057
+Model:Gradient Boosting         | F1: 0.1918 | Accuracy: 0.1075 | Precision: 0.1085 | recall: 0.8279
+Model:Decision Tree             | F1: 0.0499 | Accuracy: 0.0420 | Precision: 0.0286 | recall: 0.1967
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Tuning baseline models ...
+
+Searching Tuned Random Forest ...
+Best Params: {'max_depth': 3, 'min_samples_leaf': 3, 'n_estimators': 300}
+
+Searching Tuned Gradient Boosting ...
+Best Params: {'learning_rate': 0.03, 'max_depth': 3, 'max_iter': 200}
+
+Searching Tuned XGBoost ...
+Best Params: {'learning_rate': 0.03, 'max_depth': 3, 'n_estimators': 200}
+
+Searching Tuned SVM ...
+Best Params: {'model__C': 0.1, 'model__gamma': 'scale'}
+
+Searching Tuned Decision Tree ...
+Best Params: {'max_depth': 3, 'min_samples_leaf': 5}
+
+Searching Tuned Logistic Regression ...
+Best Params: {'model__C': 1}
+
+---------------------------------
+
+Final tuned all models
+Model:Tuned Random Forest       | F1: 0.8646 | Accuracy: 0.9675 | Precision: 0.9252 | recall: 0.8115
+Model:Tuned XGBoost             | F1: 0.8626 | Accuracy: 0.9659 | Precision: 0.8908 | recall: 0.8361
+Model:Tuned Gradient Boosting   | F1: 0.8529 | Accuracy: 0.9633 | Precision: 0.8750 | recall: 0.8320
+Model:Tuned Decision Tree       | F1: 0.8484 | Accuracy: 0.9638 | Precision: 0.9147 | recall: 0.7910
+Model:Gradient Boosting         | F1: 0.8263 | Accuracy: 0.9544 | Precision: 0.8054 | recall: 0.8484
+Model:XGBoost                   | F1: 0.8000 | Accuracy: 0.9449 | Precision: 0.7473 | recall: 0.8607
+Model:Logistic Regression       | F1: 0.7690 | Accuracy: 0.9313 | Precision: 0.6749 | recall: 0.8934
+Model:Tuned Logistic Regression | F1: 0.7684 | Accuracy: 0.9324 | Precision: 0.6837 | recall: 0.8770
+Model:SVM                       | F1: 0.3725 | Accuracy: 0.6361 | Precision: 0.2390 | recall: 0.8443
+Model:Tuned SVM                 | F1: 0.3589 | Accuracy: 0.5711 | Precision: 0.2219 | recall: 0.9385
+Model:Random Forest             | F1: 0.2262 | Accuracy: 0.1353 | Precision: 0.1277 | recall: 0.9877
+Model:Decision Tree             | F1: 0.0499 | Accuracy: 0.0420 | Precision: 0.0286 | recall: 0.1967
+
+
+===FINAL RANKING===
+
+Model: Tuned Random Forest (Grid)          | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | recall: 0.8115
+Model: Tuned Random Forest (Random)        | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | recall: 0.8115
+Model: Tuned Gradient Boosting (Grid)      | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | recall: 0.8361
+Model: Tuned Gradient Boosting (Random)    | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | recall: 0.8361
+Model: Tuned Decision Tree (Grid)          | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | recall: 0.7910
+Model: Tuned Decision Tree (Random)        | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | recall: 0.7910
+Model: Tuned XGBoost (Grid)                | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | recall: 0.8566
+Model: Tuned XGBoost (Random)              | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | recall: 0.8566
+Model: Gradient Boosting                   | F1: 0.8263 | Acc: 0.9544 | Prec: 0.8054 | recall: 0.8484
+Model: XGBoost                             | F1: 0.8000 | Acc: 0.9449 | Prec: 0.7473 | recall: 0.8607
+Model: Tuned Logistic Regression (Grid)    | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | recall: 0.7869
+Model: Tuned Logistic Regression (Random)  | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | recall: 0.7869
+Model: Logistic Regression                 | F1: 0.7690 | Acc: 0.9313 | Prec: 0.6749 | recall: 0.8934
+Model: SVM                                 | F1: 0.3715 | Acc: 0.6345 | Prec: 0.2382 | recall: 0.8443
+Model: Tuned SVM (Grid)                    | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | recall: 0.9385
+Model: Tuned SVM (Random)                  | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | recall: 0.9385
+Model: Random Forest                       | F1: 0.2262 | Acc: 0.1353 | Prec: 0.1277 | recall: 0.9877
+Model: Decision Tree                       | F1: 0.0499 | Acc: 0.0420 | Prec: 0.0286 | recall: 0.1967
+
+
+
+===FINAL COMPARISON===
+
+
+### Random Forest
+---------------------------------------------------------------------------
+Baseline     | F1: 0.2262 | Acc: 0.1353 | Prec: 0.1277 | Recall: 0.9877
+Grid Search  | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | Recall: 0.8115
+Random Search | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | Recall: 0.8115
+
+### Gradient Boosting
+---------------------------------------------------------------------------
+Baseline     | F1: 0.8263 | Acc: 0.9544 | Prec: 0.8054 | Recall: 0.8484
+Grid Search  | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | Recall: 0.8361
+Random Search | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | Recall: 0.8361
+
+### XGBoost
+---------------------------------------------------------------------------
+Baseline     | F1: 0.8000 | Acc: 0.9449 | Prec: 0.7473 | Recall: 0.8607
+Grid Search  | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | Recall: 0.8566
+Random Search | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | Recall: 0.8566
+
+### Decision Tree
+---------------------------------------------------------------------------
+Baseline     | F1: 0.0499 | Acc: 0.0420 | Prec: 0.0286 | Recall: 0.1967
+Grid Search  | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | Recall: 0.7910
+Random Search | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | Recall: 0.7910
+
+### Logistic Regression
+---------------------------------------------------------------------------
+Baseline     | F1: 0.7690 | Acc: 0.9313 | Prec: 0.6749 | Recall: 0.8934
+Grid Search  | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | Recall: 0.7869
+Random Search | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | Recall: 0.7869
+
+### SVM
+---------------------------------------------------------------------------
+Baseline     | F1: 0.3712 | Acc: 0.6340 | Prec: 0.2379 | Recall: 0.8443
+Grid Search  | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | Recall: 0.9385
+Random Search | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | Recall: 0.9385
+
+### Random Forest
+---------------------------------------------------------------------------
+Baseline     | F1: 0.2262 | Acc: 0.1353 | Prec: 0.1277 | Recall: 0.9877
+Grid Search  | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | Recall: 0.8115
+Random Search | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | Recall: 0.8115
+
+### Gradient Boosting
+---------------------------------------------------------------------------
+Baseline     | F1: 0.8263 | Acc: 0.9544 | Prec: 0.8054 | Recall: 0.8484
+Grid Search  | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | Recall: 0.8361
+Random Search | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | Recall: 0.8361
+
+### XGBoost
+---------------------------------------------------------------------------
+Baseline     | F1: 0.8000 | Acc: 0.9449 | Prec: 0.7473 | Recall: 0.8607
+Grid Search  | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | Recall: 0.8566
+Random Search | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | Recall: 0.8566
+
+### Decision Tree
+---------------------------------------------------------------------------
+Baseline     | F1: 0.0499 | Acc: 0.0420 | Prec: 0.0286 | Recall: 0.1967
+Grid Search  | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | Recall: 0.7910
+Random Search | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | Recall: 0.7910
+
+### Logistic Regression
+---------------------------------------------------------------------------
+Baseline     | F1: 0.7690 | Acc: 0.9313 | Prec: 0.6749 | Recall: 0.8934
+Grid Search  | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | Recall: 0.7869
+Random Search | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | Recall: 0.7869
+
+### SVM
+---------------------------------------------------------------------------
+Baseline     | F1: 0.3712 | Acc: 0.6340 | Prec: 0.2379 | Recall: 0.8443
+Grid Search  | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | Recall: 0.9385
+Random Search | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | Recall: 0.9385
+
+========================================
+
+Tuning baseline models ...
+
+
+============================================================
+Finding best parameters for Tuned Random Forest ...
+Grid Best:  {'max_depth': 3, 'min_samples_leaf': 3, 'n_estimators': 400}
+Random Best: {'n_estimators': 400, 'min_samples_leaf': 3, 'max_depth': 3} 
+
+Best Method: Grid Search
+Best Params: {'max_depth': 3, 'min_samples_leaf': 3, 'n_estimators': 400}
+
+
+============================================================
+Finding best parameters for Tuned Gradient Boosting ...
+Grid Best:  {'learning_rate': 0.03, 'max_depth': 4, 'max_iter': 200}
+Random Best: {'max_iter': 200, 'max_depth': 4, 'learning_rate': 0.03} 
+
+Best Method: Grid Search
+Best Params: {'learning_rate': 0.03, 'max_depth': 4, 'max_iter': 200}
+
+
+============================================================
+Finding best parameters for Tuned XGBoost ...
+Grid Best:  {'learning_rate': 0.03, 'max_depth': 5, 'n_estimators': 200}
+Random Best: {'n_estimators': 200, 'max_depth': 5, 'learning_rate': 0.03} 
+
+Best Method: Grid Search
+Best Params: {'learning_rate': 0.03, 'max_depth': 5, 'n_estimators': 200}
+
+
+============================================================
+Finding best parameters for Tuned SVM ...
+Grid Best:  {'model__C': 0.1, 'model__gamma': 'scale'}
+Random Best: {'model__gamma': 'scale', 'model__C': 0.1} 
+
+Best Method: Grid Search
+Best Params: {'model__C': 0.1, 'model__gamma': 'scale'}
+
+
+============================================================
+Finding best parameters for Tuned Decision Tree ...
+Grid Best:  {'max_depth': 3, 'min_samples_leaf': 5}
+Random Best: {'min_samples_leaf': 5, 'max_depth': 3} 
+
+Best Method: Grid Search
+Best Params: {'max_depth': 3, 'min_samples_leaf': 5}
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+Finding best parameters for Tuned Logistic Regression ...
+Grid Best:  {'model__C': 5}
+Random Best: {'model__C': 5} 
+
+Best Method: Grid Search
+Best Params: {'model__C': 5}
+
+
+===FINAL COMPARISON===
+
+
+### Random Forest
+---------------------------------------------------------------------------
+Baseline      | F1: 0.2262 | Acc: 0.1353 | Prec: 0.1277 | Recall: 0.9877
+Grid Search   | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | Recall: 0.8115
+Random Search | F1: 0.8627 | Acc: 0.9670 | Prec: 0.9209 | Recall: 0.8115
+
+### Gradient Boosting
+---------------------------------------------------------------------------
+Baseline      | F1: 0.8263 | Acc: 0.9544 | Prec: 0.8054 | Recall: 0.8484
+Grid Search   | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | Recall: 0.8361
+Random Search | F1: 0.8553 | Acc: 0.9638 | Prec: 0.8755 | Recall: 0.8361
+
+### XGBoost
+---------------------------------------------------------------------------
+Baseline      | F1: 0.8000 | Acc: 0.9449 | Prec: 0.7473 | Recall: 0.8607
+Grid Search   | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | Recall: 0.8566
+Random Search | F1: 0.8427 | Acc: 0.9591 | Prec: 0.8294 | Recall: 0.8566
+
+### Decision Tree
+---------------------------------------------------------------------------
+Baseline      | F1: 0.0499 | Acc: 0.0420 | Prec: 0.0286 | Recall: 0.1967
+Grid Search   | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | Recall: 0.7910
+Random Search | F1: 0.8484 | Acc: 0.9638 | Prec: 0.9147 | Recall: 0.7910
+
+### Logistic Regression
+---------------------------------------------------------------------------
+Baseline      | F1: 0.7690 | Acc: 0.9313 | Prec: 0.6749 | Recall: 0.8934
+Grid Search   | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | Recall: 0.7869
+Random Search | F1: 0.7773 | Acc: 0.9423 | Prec: 0.7680 | Recall: 0.7869
+
+### SVM
+---------------------------------------------------------------------------
+Baseline      | F1: 0.3715 | Acc: 0.6345 | Prec: 0.2382 | Recall: 0.8443
+Grid Search   | F1: 0.3592 | Acc: 0.5716 | Prec: 0.2221 | Recall: 0.9385
+Random Search | F1: 0.3589 | Acc: 0.5711 | Prec: 0.2219 | Recall: 0.9385
+
+
+========================================
+BEST OVERALL TUNED MODEL
+======================================== 
+
+Tuned Random Forest (Grid)
+BEST F1-Score: 0.8627
+============================================================
+
+Best Model successfully cached to: models/tuned/production_champion.pkl
+
