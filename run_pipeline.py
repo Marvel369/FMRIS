@@ -15,6 +15,7 @@ STEPS = [
     "src/preprocessing.py",
     "src/feature_engineering.py",
     "src/train_baseline.py",
+    "src/model_tuning.py"
 ]
 
 for step in STEPS:
