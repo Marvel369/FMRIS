@@ -73,39 +73,103 @@ def load_treasury():
 
     return df[["Date", "treasury_10y"]]
 
+def load_treasury_2y():
+    df =pd.read_csv(
+        DATA_PATH / "treasury_2y.csv"
+    )
+    print("\n=============================================\n")
+    
+    # FRED format
+    if "observation_date" in df.columns:
+        df.rename(
+            columns={
+                "observation_date": "Date"
+            },
+            inplace=True
+        )
+    
+    df["Date"] = pd.to_datetime(df["Date"])
+    
+    # Rename value column
+    if "GS2" in df.columns:
+        df.rename(
+            columns={
+                "GS2": "treasury_2y"
+                },
+            inplace=True
+            )
+    
+    return df[["Date", "treasury_2y"]]
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 def load_all_data():
 
     #load
     sp500 = load_sp500()
     vix = load_vix()
     treasury = load_treasury()
+    treasury_2y = load_treasury_2y()
 
     #merge market = sp500 + vix 
     market = sp500.merge(
         vix,
         on="Date",
-        how="left"
+        how="outer"
     )
     #merge market = market + treasury
     market = market.merge(
         treasury,
         on="Date",
-        how="left"
+        how="outer"
     )
-
-    market=market[market["Date"] >= "1990-01-01"]
+    # merge market = market + treasury_2y
+    market = market.merge(
+            treasury_2y,
+            on="Date",
+            how="outer"
+        )
 
     market = market.sort_values(
         "Date"
-    )
-    market = market.reset_index(drop=True)
-    market["Date"] =  market["Date"].dt.date
+    ).reset_index(drop=True)
+
+    # convert to numeric
+    market["treasury_10y"] = pd.to_numeric(market["treasury_10y"], errors='coerce')
+    market["treasury_2y"] = pd.to_numeric(market["treasury_2y"], errors='coerce')
+    market["vix"] = pd.to_numeric(market["vix"], errors='coerce')
+    market["sp500"] = pd.to_numeric(market["sp500"], errors='coerce')
+
+    # Forward fill missing dates
+    market[["sp500", "vix", "treasury_10y", "treasury_2y"]] = market[["sp500", "vix", "treasury_10y", "treasury_2y"]].ffill()
+    
+    # Backward fill any remaining edge cases.
+    market[["sp500", "vix", "treasury_10y", "treasury_2y"]] = market[["sp500", "vix", "treasury_10y", "treasury_2y"]].bfill()
+
+    # Keep ALL data here. Do NOT filter out
+    market = market[market["Date"] >= "1990-01-01"]
+
+    # Cleanup and export
+    market = market.sort_values("Date").reset_index(drop=True)
+
 
     market.to_csv(
         DATA_PATH / "raw_market_data.csv",
         index=False
     )
 
+    market["Date"] =  market["Date"].dt.date
     return market
 
 if __name__ == "__main__":

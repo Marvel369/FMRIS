@@ -35,6 +35,24 @@ def create_features():
         .pct_change()
     )
 
+    #feature 6: Yield spread daily change
+    df["yield_spread_change"] = (
+        df["yield_spread"]
+        .diff()
+    )
+    #feature 7: vix 10 day moving avg
+    df["vix_MA_10"] = (
+        df["vix"]
+        .rolling(window=10)
+        .mean()
+    )
+
+    #feature 8: sp500 market momentum 10d
+    df["sp500_Momentum_10d"] = (
+        df["sp500"]
+        .pct_change(periods=10)
+    )
+
     #dropping nan values
     df = df.dropna()
 

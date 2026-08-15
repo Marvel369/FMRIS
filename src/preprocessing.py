@@ -33,8 +33,16 @@ def preprocessing_data():
     df = pd.read_csv("data/raw_market_data.csv")
     df = df.sort_values("Date")
     df["treasury_10y"] = df["treasury_10y"].ffill() # fill in missing values
-    df = df.dropna() # drop initial mssing values 
+    df["treasury_2y"] = df["treasury_2y"].ffill() # fill in missing values
+
+    df = df.dropna() # drop initial missing values 
+
     df["market_return"] = df["sp500"].pct_change()
+
+    #Yield curve spread
+    df["yield_spread"] = (
+        df["treasury_10y"] - df["treasury_2y"]
+    )
 
     # Small volatility = Low risk & large volatility = high risk.
     df['volatility_30day'] = (

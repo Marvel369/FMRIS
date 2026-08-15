@@ -61,7 +61,7 @@ MCC      : 0.2764
 [[654 600]
  [ 44 228]]
 
-this one might have dataleakages
+this one might have data leakages
 
  ==================================================================
  ==================================================================
@@ -127,7 +127,7 @@ MCC      : 0.2552
 === Confusion Matrix ===
 [[641 647]
  [ 35 202]]
-(venv) Muhammads-MacBook-Air-1485:FinancialMarketRiskIntelligenceSystem ali$ 
+
 
 
 ===============================BASELINE=============================== 0.35
@@ -422,4 +422,59 @@ BEST F1-Score: 0.8627
 ============================================================
 
 Best Model successfully cached to: models/tuned/production_champion.pkl
+
+
+# after changing merging to 'outer' instead of left. baseline improved
+### Random Forest
+---------------------------------------------------------------------------
+Baseline      **F1: 0.7537 | Acc: 0.8984** | Prec: 0.6481 | Recall: 0.9002 | MCC: 0.7066
+Grid Search   | F1: 0.8611 | Acc: 0.9531 | Prec: 0.8802 | Recall: 0.8429 | MCC: 0.8332
+Random Search | F1: 0.8611 | Acc: 0.9531 | Prec: 0.8802 | Recall: 0.8429 | MCC: 0.8332
+
+### Gradient Boosting
+---------------------------------------------------------------------------
+Baseline      | F1: 0.8169 | Acc: 0.9440 | Prec: 0.9385 | Recall: 0.7232 | MCC: 0.7938
+Grid Search   | F1: 0.8528 | Acc: 0.9496 | Prec: 0.8604 | Recall: 0.8454 | MCC: 0.8225
+Random Search | F1: 0.8528 | Acc: 0.9496 | Prec: 0.8604 | Recall: 0.8454 | MCC: 0.8225
+
+### XGBoost
+---------------------------------------------------------------------------
+Baseline      | F1: 0.8542 | Acc: 0.9518 | Prec: 0.8937 | Recall: 0.8180 | MCC: 0.8265
+Grid Search   | F1: 0.8518 | Acc: 0.9492 | Prec: 0.8582 | Recall: 0.8454 | MCC: 0.8211
+Random Search | F1: 0.8518 | Acc: 0.9492 | Prec: 0.8582 | Recall: 0.8454 | MCC: 0.8211
+
+### Decision Tree
+---------------------------------------------------------------------------
+Baseline      | F1: 0.3342 | Acc: 0.5624 | Prec: 0.2267 | Recall: 0.6359 | MCC: 0.1384
+Grid Search   | F1: 0.8504 | Acc: 0.9483 | Prec: 0.8504 | Recall: 0.8504 | MCC: 0.8191
+Random Search | F1: 0.8504 | Acc: 0.9483 | Prec: 0.8504 | Recall: 0.8504 | MCC: 0.8191
+
+### Logistic Regression
+---------------------------------------------------------------------------
+Baseline      | F1: 0.8119 | Acc: 0.9289 | Prec: 0.7479 | Recall: 0.8878 | MCC: 0.7727
+Grid Search   | F1: 0.7542 | Acc: 0.8984 | Prec: 0.6476 | Recall: 0.9027 | MCC: 0.7075
+Random Search | F1: 0.7542 | Acc: 0.8984 | Prec: 0.6476 | Recall: 0.9027 | MCC: 0.7075
+
+### SVM
+---------------------------------------------------------------------------
+Baseline      | F1: 0.3315 | Acc: 0.3329 | Prec: 0.2004 | Recall: 0.9576 | MCC: 0.1593
+Grid Search   | F1: 0.3484 | Acc: 0.3958 | Prec: 0.2140 | Recall: 0.9352 | MCC: 0.1918
+Random Search | F1: 0.3484 | Acc: 0.3958 | Prec: 0.2140 | Recall: 0.9352 | MCC: 0.1918
+
+========================================
+BEST OVERALL TUNED MODEL
+======================================== 
+
+Tuned Random Forest (Grid)
+BEST F1-Score: 0.8611
+============================================================
+
+Best Model successfully cached to: models/tuned/production_champion.pkl
+
+
+---
+Pipeline complete!!!
+ Run `python src/model_selector.py` next to pick the best fine-tuned model,
+then `python src/predictor.py` to get tomorrow's risk probability.
+---
 
