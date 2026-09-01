@@ -74,6 +74,7 @@ def load_treasury():
     return df[["Date", "treasury_10y"]]
 
 def load_treasury_2y():
+
     df =pd.read_csv(
         DATA_PATH / "treasury_2y.csv"
     )
@@ -101,9 +102,58 @@ def load_treasury_2y():
     
     return df[["Date", "treasury_2y"]]
     
+def load_unemployment():
+    df = pd.read_csv(
+        DATA_PATH / "unemployment.csv"
+    )
 
+# FRED format
+    if "observation_date" in df.columns:
+        df.rename(
+            columns={
+                "observation_date": "Date"
+            },
+            inplace=True
+        )
+        
+    df["Date"] = pd.to_datetime(df["Date"])
 
+    # Rename value column
+    if "UNRATE" in df.columns:
+        df.rename(
+            columns={
+                "UNRATE" : "unemployment"
+                },
+            inplace=True
+            )
+    return df[["Date", "unemployment"]]
 
+def load_fed_funds():
+    df = pd.read_csv(
+            DATA_PATH / "fed_funds.csv"
+        )
+
+    # FRED format
+    if "observation_date" in df.columns:
+        df.rename(
+            columns={
+                "observation_date": "Date"
+            },
+            inplace=True
+        )
+        
+    df["Date"] = pd.to_datetime(df["Date"])
+
+    # Rename value column
+    if "FEDFUNDS" in df.columns:
+        df.rename(
+            columns={
+                "FEDFUNDS": "fed_funds"
+                },
+            inplace=True
+            )
+        
+    return df[["Date", "fed_funds"]]
 
 
 
@@ -121,6 +171,8 @@ def load_all_data():
     vix = load_vix()
     treasury = load_treasury()
     treasury_2y = load_treasury_2y()
+    unemployment = load_unemployment()
+    fed_funds = load_fed_funds()
 
     #merge market = sp500 + vix 
     market = sp500.merge(
@@ -139,7 +191,19 @@ def load_all_data():
             treasury_2y,
             on="Date",
             how="outer"
-        )
+    )
+    # merge market = market + unemployment
+    market = market.merge(
+                unemployment,
+                on="Date",
+                how="outer"
+    )
+    # merge market = market + fed_funds
+    market = market.merge(
+                    fed_funds,
+                    on="Date",
+                    how="outer"
+                )
 
     market = market.sort_values(
         "Date"
@@ -150,12 +214,14 @@ def load_all_data():
     market["treasury_2y"] = pd.to_numeric(market["treasury_2y"], errors='coerce')
     market["vix"] = pd.to_numeric(market["vix"], errors='coerce')
     market["sp500"] = pd.to_numeric(market["sp500"], errors='coerce')
+    market["unemployment"] = pd.to_numeric(market["unemployment"], errors='coerce')
+    market["fed_funds"] = pd.to_numeric(market["fed_funds"], errors='coerce')
 
     # Forward fill missing dates
-    market[["sp500", "vix", "treasury_10y", "treasury_2y"]] = market[["sp500", "vix", "treasury_10y", "treasury_2y"]].ffill()
+    market[["sp500", "vix", "treasury_10y", "treasury_2y","unemployment","fed_funds"]] = market[["sp500", "vix", "treasury_10y", "treasury_2y","unemployment","fed_funds"]].ffill()
     
     # Backward fill any remaining edge cases.
-    market[["sp500", "vix", "treasury_10y", "treasury_2y"]] = market[["sp500", "vix", "treasury_10y", "treasury_2y"]].bfill()
+    market[["sp500", "vix", "treasury_10y", "treasury_2y","unemployment","fed_funds"]] = market[["sp500", "vix", "treasury_10y", "treasury_2y","unemployment","fed_funds"]].bfill()
 
     # Keep ALL data here. Do NOT filter out
     market = market[market["Date"] >= "1990-01-01"]

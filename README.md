@@ -5,3 +5,6 @@
 
 <!-- https://fred.stlouisfed.org/series/GS2 -->
 
+<!-- https://fred.stlouisfed.org/series/FEDFUNDS?utm_source=chatgpt.com -->
+
+<!-- https://fred.stlouisfed.org/series/UNRATE?utm_source=chatgpt.com -->
